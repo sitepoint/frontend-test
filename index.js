@@ -1,3 +1,5 @@
+'use strict';
+
 var express     = require("express");
 var app         = express();
 var bodyParser  = require("body-parser");
@@ -13,12 +15,12 @@ app.use(compression());
 
 function sendFile(name) {
   return function(req, res) {
-    res.sendFile(__dirname + "/static/" + name);
+    res.sendFile(__dirname + "/dist/" + name);
   };
 }
 
 app.get("/", sendFile("index.html"));
-app.get("/app.js", sendFile("app.js"));
+app.get("/bundle.js", sendFile("bundle.js"));
 app.get("/app.css", sendFile("app.css"));
 
 // [json] GET /api/v1/counters
@@ -27,7 +29,7 @@ app.get("/app.css", sendFile("app.css"));
 // =>   {id: "zxcv", title: "steve", count: 3}
 // => ]
 app.get("/api/v1/counters", function(req, res) {
-  res.json(Counters.all())
+  res.json(Counters.all());
 });
 
 // [json] POST {title: "bob"} /api/v1/counters
@@ -71,3 +73,5 @@ app.get("*", sendFile("index.html"));
 app.head("*", sendFile("index.html"));
 
 app.listen(PORT, console.log.bind(null, "PORT: " + PORT));
+
+module.export = app;
