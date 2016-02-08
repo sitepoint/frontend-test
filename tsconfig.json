@@ -11,6 +11,9 @@
   },
   "files": [
     "./static/boot.ts",
-    "./static/app.ts"
+    "./static/app.ts",
+    "./static/total.ts",
+    "./static/counter.ts",
+    "./static/services/counter.ts"
   ]
 }

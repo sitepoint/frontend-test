@@ -1,17 +1,11 @@
-import { Component, View } from 'angular2/core';
+import { Component } from 'angular2/core';
+import { Counter } from './counter';
 
 @Component({
-  selector: 'App'
+  selector: 'App',
+  directives: [Counter],
+  templateUrl: './app.html'
 })
-@View({
-  template: `
-    <div>Hello my friends This is my app!</div>
-  `
-})
-export class App {
-  appStatus: string;
 
-  constructor() {
-    this.appStatus = 'Application is working.';
-  }
+export class App {
 }

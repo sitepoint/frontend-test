@@ -3,6 +3,8 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
+  devtool: 'source-map',
+  debug: true,
   resolve: {
     modulesDirectories: ['node_modules'],
     root: './static',
@@ -12,6 +14,6 @@ module.exports = {
     loaders: [
       { test: /\.tsx?$/, loader: 'ts-loader' }
     ],
-    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
+    noParse: [/zone\.js\/dist\/.+/, /angular2\/bundles\/.+/]
   }
-}
+};

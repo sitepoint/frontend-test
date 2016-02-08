@@ -3,9 +3,16 @@
     "class-name": true,
     "curly": false,
     "eofline": true,
-    "indent": [true, "spaces"],
-    "max-line-length": [true, 140],
-    "member-ordering": [true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "max-line-length": [
+      true,
+      140
+    ],
+    "member-ordering": [
+      true,
       "public-before-private",
       "static-before-instance",
       "variables-before-functions"
@@ -22,13 +29,17 @@
     "no-unused-variable": true,
     "no-unreachable": true,
     "no-use-before-declare": true,
-    "one-line": [true,
+    "one-line": [
+      true,
       "check-open-brace",
       "check-catch",
       "check-else",
       "check-whitespace"
     ],
-    "quotemark": [true, "single"],
+    "quotemark": [
+      true,
+      "single"
+    ],
     "semicolon": true,
     "triple-equals": true,
     "variable-name": false
