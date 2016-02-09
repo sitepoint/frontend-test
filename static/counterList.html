@@ -1,0 +1,38 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="#counterItem of counterList">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="col-xs-11">
+          <div>{{counterItem.title}}</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="input-group">
+            <div class="form-control">
+              <div>{{counterItem.currentCount}}</div>
+            </div>
+            <div class="input-group-btn-vertical">
+              <button class="btn btn-default" type="button" (click)="increaseCount($event, counterItem)"><i class="fa fa-caret-up"></i></button>
+              <button class="btn btn-default" type="button" (click)="decreaseCount($event, counterItem)"><i class="fa fa-caret-down"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-info">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="col-xs-11">
+          <h5>Total</h5>
+        </div>
+        <div class="col-xs-1">
+          <div class="input-group">
+            <div class="form-control">
+              {{total}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

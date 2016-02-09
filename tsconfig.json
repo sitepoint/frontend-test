@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": ".",
+    "target": "es5",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noLib": false
+  },
+  "files": [
+    "./static/boot.ts",
+    "./static/app.ts",
+    "./static/counterList.ts",
+    "./static/services/counterService.ts",
+    "./static/actions/counterAction.ts",
+    "./static/reducers/counterReducer.ts",
+    "./static/stores/configureStore.ts",
+    "./static/immutables/counter.ts",
+    "./settings.ts"
+  ]
+}
