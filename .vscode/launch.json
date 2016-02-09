@@ -5,8 +5,8 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "gulpfile.js",
-            "stopOnEntry": true,
+            "program": "index.js",
+            "stopOnEntry": false,
             "args": [
                 "dev"
             ],

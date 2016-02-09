@@ -1,30 +1,30 @@
 var gulp = require('gulp');
+var gulpLoadPlugins = require('gulp-load-plugins');
+var plugins = gulpLoadPlugins();
 var rimraf = require('gulp-rimraf');
-var connect = require('gulp-connect');
-var open = require('gulp-open');
 var webpack = require('webpack-stream');
 var PORT = 3000;
 
 gulp.task('connect', function () {
-  connect.server({
+  plugins.connect.server({
     root: ['./dist'],
     port: PORT,
     livereload: true
   });
 });
 
-gulp.task('scripts', function () {
+gulp.task('js', function () {
   return gulp.src('./static/app.ts')
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest('./dist'))
-    .pipe(connect.reload())
+    .pipe(plugins.connect.reload())
     ;
 });
 
-gulp.task('htmls', function () {
+gulp.task('html', function () {
   return gulp.src('./static/*.html')
     .pipe(gulp.dest('./dist'))
-    .pipe(connect.reload())
+    .pipe(plugins.connect.reload())
     ;
 });
 
@@ -58,16 +58,26 @@ gulp.task('fonts', function () {
 
 gulp.task('open', function () {
   return gulp.src('./dist/index.html')
-    .pipe(open({ app: 'chrome', uri: 'http://localhost:' + PORT }))
+    .pipe(plugins.open({ app: 'chrome', uri: 'http://localhost:' + PORT }))
+    ;
+});
+
+gulp.task('lib', function () {
+  return gulp.src('lib/**')
+    .pipe(gulp.dest('./dist/lib'))
     ;
 });
 
 gulp.task('watch', function () {
   gulp.watch(['!./static/**/**.ts', './static/**/**.*'], ['copy']);
-  gulp.watch('./static/**/**.ts', ['scripts']);
-  gulp.watch('./static/*.html', ['htmls']);
+  gulp.watch('./static/**/**.ts', ['js']);
+  gulp.watch('./static/*.html', ['html']);
 });
 
-gulp.task('dev', ['scripts', 'htmls', 'copy', 'copy-libs', 'fonts', 'connect', 'watch', 'open']);
+gulp.task('dev', function (cb) {
+  plugins.runSequence(['default', 'connect', 'watch'], 'open', cb);
+});
 
-gulp.task('default', ['scripts', 'htmls', 'copy', 'copy-libs', 'fonts']);
+gulp.task('default', function (cb) { 
+  plugins.runSequence(['js', 'html', 'copy', 'copy-libs', 'fonts', 'lib'], cb);
+});

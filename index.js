@@ -20,8 +20,19 @@ function sendFile(name) {
 }
 
 app.get("/", sendFile("index.html"));
+app.get("/counterList.html", sendFile("counterList.html"));
+app.get("/app.html", sendFile("app.html"));
 app.get("/bundle.js", sendFile("bundle.js"));
+app.get("/libs/bootstrap.js", sendFile("/libs/bootstrap.js"));
+app.get("/libs/bootstrap.css", sendFile("/libs/bootstrap.css"));
+app.get("/libs/font-awesome.css", sendFile("/libs/font-awesome.css"));
+app.get("/libs/jquery.js", sendFile("/libs/jquery.js"));
 app.get("/app.css", sendFile("app.css"));
+app.get("/fonts/fontawesome-webfont.woff2", sendFile("/fonts/fontawesome-webfont.woff2"));
+app.get("/fonts/fontawesome-webfont.woff", sendFile("/fonts/fontawesome-webfont.woff"));
+app.get("/fonts/fontawesome-webfont.ttf", sendFile("/fonts/fontawesome-webfont.ttf"));
+app.get("/fonts/fontawesome-webfont.svg", sendFile("/fonts/fontawesome-webfont.svg"));
+app.get("/fonts/fontawesome-webfont.eot", sendFile("/fonts/fontawesome-webfont.eot"));
 
 // [json] GET /api/v1/counters
 // => [
@@ -73,5 +84,3 @@ app.get("*", sendFile("index.html"));
 app.head("*", sendFile("index.html"));
 
 app.listen(PORT, console.log.bind(null, "PORT: " + PORT));
-
-module.exports = app;
