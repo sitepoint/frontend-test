@@ -1,4 +1,4 @@
-# SITEPOINT FRONTEND TEST
+# FLIPPA FRONTEND TEST
 
 You need to create a simple counter application that can do the following:
 * Add a named counter to a list of counters
