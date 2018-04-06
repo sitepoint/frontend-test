@@ -1,7 +1,7 @@
 {
-  "name": "sitepoint-test",
+  "name": "flippa-test",
   "version": "1.0.0",
-  "description": "sitepoint front end test",
+  "description": "flippa front end test",
   "main": "index.js",
   "scripts": {
     "start" : "node index.js"
